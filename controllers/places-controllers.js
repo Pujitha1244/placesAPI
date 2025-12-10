@@ -52,10 +52,14 @@ const getPlaceByUserId = (req, res, next) => {
 };
 
 const createPlace = (req, res) => {
+  console.log("Content-Type:", req.headers["content-type"]);
+  console.log("is JSON?:", req.is("application/json"));
+  console.log("Raw body (parsed):", req.body);
   const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    throw new HttpError("Invalid Inputs passed", 422);
-  }
+  // if (!errors.isEmpty()) {
+  //   throw new HttpError("Invalid Inputs passed", 422);
+  // }
+  console.log(req.body);
   const { title, description, address, creator, coordinates } = req.body;
   const createdPlace = {
     id: uuidv4(),

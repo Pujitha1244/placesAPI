@@ -24,7 +24,7 @@ placesRouter.patch(
 placesRouter.delete("/:pid", deletePlace);
 
 placesRouter.post(
-  "/",
+  "/create",
   [
     check("title").not().isEmpty(),
     check("description").isLength({ min: 5 }),
